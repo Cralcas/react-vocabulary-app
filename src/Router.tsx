@@ -1,7 +1,7 @@
-import {createBrowserRouter} from "react-router-dom";
-import {Layout} from "./pages/Layout";
-import {Home} from "./pages/Home";
-import {Form} from "./pages/Form";
+import { createBrowserRouter } from "react-router-dom";
+import { Layout } from "./pages/Layout";
+import { Home } from "./pages/Home";
+import { CreateCourse } from "./pages/CreateCourse";
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +13,8 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/form",
-        element: <Form />,
+        path: "/createcourse",
+        element: <CreateCourse />,
       },
     ],
   },
