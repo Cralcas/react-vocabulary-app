@@ -1,3 +1,15 @@
+import {useNavigate} from "react-router-dom";
+
 export const Home = () => {
-  return <>Knapp för form osv..</>;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/form");
+  };
+
+  return (
+    <>
+      <button onClick={handleClick}>Create a course</button>
+    </>
+  );
 };

@@ -1,3 +1,14 @@
 export const Header = () => {
-  return <></>;
+  return (
+    <>
+      <header>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Form</li>
+          </ul>
+        </nav>
+      </header>
+    </>
+  );
 };
