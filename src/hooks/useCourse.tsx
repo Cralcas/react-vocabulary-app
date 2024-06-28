@@ -1,6 +1,5 @@
-import {useState} from "react";
-import {Course} from "../models/Course";
-import {IWord} from "../models/IWord";
+import { useState } from "react";
+import { Course } from "../models/Course";
 
 export const useCourse = () => {
   const getSavedCourses = (): Course[] => {
@@ -10,12 +9,12 @@ export const useCourse = () => {
 
   const [courses, setCourses] = useState<Course[]>(getSavedCourses);
 
-  const addCourse = (genre: string, language: string, words: IWord[]) => {
-    const newCourse = new Course(genre, language, words);
+  const addCourse = (course: Course) => {
+    const newCourse = new Course(course.genre, course.language, course.words);
     const updatedCourses = [...courses, newCourse];
     setCourses(updatedCourses);
     localStorage.setItem("courses", JSON.stringify(updatedCourses));
   };
 
-  return {courses, addCourse};
+  return { courses, addCourse };
 };
