@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { CreateCourse } from "./pages/CreateCourse";
+import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -17,5 +18,6 @@ export const router = createBrowserRouter([
         element: <CreateCourse />,
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
