@@ -7,7 +7,7 @@ export const Header = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to={"/create-course"}>Course</NavLink>
+              <NavLink to={"/"}>Icon</NavLink>
             </li>
           </ul>
         </nav>

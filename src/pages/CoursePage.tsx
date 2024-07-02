@@ -6,9 +6,10 @@ export const CoursePage = () => {
   const { courses } = useCourse();
 
   if (!courseId) {
-    return <span>Animal ID is missing or invalid</span>;
+    return <span>Course ID is missing or invalid</span>;
   }
 
   const course = courses.find((course) => course.id === parseInt(courseId));
+
   return <>{course && <p>{course.language}</p>}</>;
 };
