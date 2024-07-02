@@ -4,7 +4,7 @@ interface ICardProps {
   course: Course;
 }
 
-export const Card = ({ course }: ICardProps) => {
+export const ShowCard = ({ course }: ICardProps) => {
   return (
     <>
       <div>
