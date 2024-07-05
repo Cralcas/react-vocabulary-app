@@ -67,7 +67,7 @@ export const VocabularyTest = ({
 
   return (
     <section>
-      <h3>{course.genre}</h3>
+      <h3>{course.subject}</h3>
       <span>
         Correct words: {course.correctWords}/{course.words.length}
       </span>

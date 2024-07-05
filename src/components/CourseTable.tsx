@@ -8,7 +8,7 @@ export const CourseTable = ({ course }: ICourseTableProps) => {
   return (
     <section>
       <h2>{course.language}</h2>
-      <h3>{course.genre}</h3>
+      <h3>{course.subject}</h3>
       <table>
         <thead>
           <tr>

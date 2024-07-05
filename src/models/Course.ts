@@ -1,11 +1,11 @@
-import {IWord} from "./IWord";
+import { IWord } from "./IWord";
 
 export class Course {
   id: number;
   correctWords: number;
 
   constructor(
-    public genre: string,
+    public subject: string,
     public language: string,
     public words: IWord[]
   ) {

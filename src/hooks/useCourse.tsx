@@ -10,7 +10,7 @@ export const useCourse = () => {
   const [courses, setCourses] = useState<Course[]>(getSavedCourses);
 
   const addCourse = (course: Course) => {
-    const newCourse = new Course(course.genre, course.language, course.words);
+    const newCourse = new Course(course.subject, course.language, course.words);
     const updatedCourses = [...courses, newCourse];
     setCourses(updatedCourses);
     localStorage.setItem("courses", JSON.stringify(updatedCourses));

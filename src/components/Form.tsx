@@ -1,9 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Course } from "../models/Course";
 import { IWord } from "../models/IWord";
+import { useNavigate } from "react-router-dom";
 
 interface ICourseFormState {
-  genre: string;
+  subject: string;
   language: string;
   words: IWord[];
 }
@@ -14,10 +15,12 @@ interface IFormProps {
 
 export const Form = ({ addCourse }: IFormProps) => {
   const [courseForm, setCourseForm] = useState<ICourseFormState>({
-    genre: "",
+    subject: "",
     language: "",
-    words: [] as IWord[],
+    words: [{ word: "", translation: "" }],
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const property = e.target.name;
@@ -53,27 +56,29 @@ export const Form = ({ addCourse }: IFormProps) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newCourse = new Course(
-      courseForm.genre,
+      courseForm.subject,
       courseForm.language,
       courseForm.words
     );
     addCourse(newCourse);
     setCourseForm({
-      genre: "",
+      subject: "",
       language: "",
       words: [{ word: "", translation: "" }],
     });
+
+    navigate("/");
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="genre">Genre</label>
+        <label htmlFor="gesubjectnre">Subject</label>
         <input
-          id="genre"
+          id="subject"
           type="text"
-          name="genre"
-          value={courseForm.genre}
+          name="subject"
+          value={courseForm.subject}
           onChange={handleChange}
           required
         />
@@ -117,7 +122,7 @@ export const Form = ({ addCourse }: IFormProps) => {
           </div>
         ))}
         <button type="button" onClick={handleAddWord}>
-          Add Word
+          New Word
         </button>
         <button type="submit">Create</button>
       </form>
