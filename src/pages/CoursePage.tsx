@@ -24,7 +24,14 @@ export const CoursePage = () => {
           <button onClick={() => setStartPractice(true)}>Start Practice</button>
         </>
       ) : (
-        <VocabularyTest />
+        <>
+          {course && (
+            <VocabularyTest
+              course={course}
+              onEndPractice={() => setStartPractice(false)}
+            />
+          )}
+        </>
       )}
     </>
   );
