@@ -1,13 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Course } from "../models/Course";
 
 interface IVocabularyTestProps {
   course: Course;
   onEndPractice: () => void;
-}
-
-interface AnswerStatus {
-  allCorrect: boolean;
 }
 
 export const VocabularyTest = ({
@@ -20,9 +16,6 @@ export const VocabularyTest = ({
   );
   const [feedback, setFeedback] = useState<string>("");
   const [gameOn, setGameOn] = useState<boolean>(true);
-  const [answerStatus, setAnswerStatus] = useState<AnswerStatus>({
-    allCorrect: false,
-  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (gameOn) {
@@ -34,48 +27,49 @@ export const VocabularyTest = ({
     event.preventDefault();
     if (!gameOn) return;
 
-    let correctAnswer = false;
     const newShowAnswers = { ...showAnswers };
-    for (const testWord of course.words) {
-      if (answer.trim().toLowerCase() === testWord.word.trim().toLowerCase()) {
-        newShowAnswers[testWord.word] = true;
+    let correctAnswer = false;
+
+    course.words.forEach((courseWord) => {
+      if (
+        answer.trim().toLowerCase() === courseWord.word.trim().toLowerCase()
+      ) {
+        newShowAnswers[courseWord.word] = true;
         correctAnswer = true;
         course.correctWords++;
       }
-    }
+    });
+
     if (correctAnswer) {
       setFeedback("Correct!");
     } else {
       setFeedback("Incorrect, try again!");
     }
+
     setShowAnswers(newShowAnswers);
     setAnswer("");
 
-    const allCorrect = course.words.every(
-      (courseWord) => newShowAnswers[courseWord.word] === true
-    );
-    if (allCorrect) {
+    if (Object.keys(newShowAnswers).length === course.words.length) {
       setGameOn(false);
       setFeedback("Congratulations! You have completed the practice.");
-      setAnswerStatus({ ...answerStatus, allCorrect: true });
     }
   };
 
-  const revealAnswers = () => {
-    const allShowAnswers = { ...showAnswers };
+  const handleShowAnswers = () => {
+    const showAllAnswers: { [key: string]: boolean } = {};
     course.words.forEach((courseWord) => {
-      allShowAnswers[courseWord.word] = true;
+      showAllAnswers[courseWord.word] = true;
     });
-    setShowAnswers(allShowAnswers);
+    setShowAnswers(showAllAnswers);
     setGameOn(false);
-    setAnswerStatus({ ...answerStatus, allCorrect: true });
+    setFeedback("Answers revealed!");
   };
 
   return (
     <section>
       <h3>{course.genre}</h3>
       <span>
-        Correct words: {course.correctWords}/ {course.words.length}
+        Correct words: {course.correctWords}/{course.words.length}
       </span>
       <form onSubmit={handleSubmit}>
         <input
@@ -88,8 +82,8 @@ export const VocabularyTest = ({
         <button type="submit" disabled={!gameOn}>
           Submit
         </button>
-        <button type="button" onClick={revealAnswers} disabled={!gameOn}>
-          Show All Answers
+        <button type="button" onClick={handleShowAnswers} disabled={!gameOn}>
+          Show Answers
         </button>
         <button type="button" onClick={onEndPractice}>
           End Practice
