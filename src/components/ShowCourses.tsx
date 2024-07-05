@@ -6,7 +6,7 @@ interface ICardProps {
   courses: Course[];
 }
 
-export const ShowCards = ({ courses }: ICardProps) => {
+export const ShowCourses = ({ courses }: ICardProps) => {
   return (
     <section>
       {courses.length > 0 ? (

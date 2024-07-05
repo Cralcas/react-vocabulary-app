@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCourse } from "../hooks/useCourse";
-import { ShowCards } from "../components/Showcards";
+import { ShowCourses } from "../components/ShowCourses";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -12,11 +12,9 @@ export const Home = () => {
 
   return (
     <>
-      <button onClick={handleClick} aria-label="Create a new course">
-        Create a course
-      </button>
+      <button onClick={handleClick}>Create a course</button>
 
-      <ShowCards courses={courses} />
+      <ShowCourses courses={courses} />
     </>
   );
 };

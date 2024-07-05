@@ -16,5 +16,11 @@ export const useCourse = () => {
     localStorage.setItem("courses", JSON.stringify(updatedCourses));
   };
 
-  return { courses, addCourse };
+  const deleteCourse = (id: number) => {
+    const updatedCourses = courses.filter((course) => course.id !== id);
+    setCourses(updatedCourses);
+    localStorage.setItem("courses", JSON.stringify(updatedCourses));
+  };
+
+  return { courses, addCourse, deleteCourse };
 };
