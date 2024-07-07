@@ -1,0 +1,13 @@
+@import "../../index.scss";
+
+.course__container {
+  width: 100%;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include laptop {
+    flex-direction: row;
+  }
+}

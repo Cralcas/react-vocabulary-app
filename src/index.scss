@@ -15,6 +15,18 @@
   padding: 0 0.25rem;
 }
 
+//buttons
+$btn-color-primary: #0a3586;
+
+@mixin button-base {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 $tablet: 768px;
 $laptop: 1024px;
 $large_laptop: 1200px;
@@ -31,12 +43,6 @@ $large_laptop: 1200px;
   }
 }
 
-@media (min-width: $large_laptop) {
-  .container {
-    max-width: $large_laptop;
-  }
-}
-
 @mixin tablet {
   @media (max-width: $tablet) {
     @content;
@@ -44,13 +50,7 @@ $large_laptop: 1200px;
 }
 
 @mixin laptop {
-  @media (max-width: $laptop) {
-    @content;
-  }
-}
-
-@mixin large_laptop {
-  @media (max-width: $large_laptop) {
+  @media (min-width: $laptop) {
     @content;
   }
 }

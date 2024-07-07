@@ -1,9 +1,21 @@
+@import "../../index.scss";
+
 .home__wrapper {
-  //   width: 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 10px 0;
+  gap: 3rem;
 
-  padding: 10px 0 10px 0;
+  @include laptop {
+    gap: 6rem;
+  }
+
+  .create-btn {
+    @include button-base;
+    background: #0a3586;
+    padding: 5px 10px;
+  }
 }

@@ -1,6 +1,7 @@
-import { Course } from "../models/Course";
-import { ErrorMessage } from "./ErrorMessage";
-import { ShowCard } from "./ShowCard";
+import { Course } from "../../models/Course";
+import { ErrorMessage } from "./../ErrorMessage";
+import { ShowCard } from "./../ShowCard";
+import "./ShowCourses.scss";
 
 interface ICardProps {
   courses: Course[];

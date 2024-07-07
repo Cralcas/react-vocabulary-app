@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCourse } from "../../hooks/useCourse";
-import { ShowCourses } from "../../components/ShowCourses";
+import { ShowCourses } from "../../components/Showcourses/ShowCourses";
 import "./Home.scss";
 
 export const Home = () => {
@@ -14,7 +14,9 @@ export const Home = () => {
   return (
     <>
       <section className="home__wrapper container">
-        <button onClick={handleClick}>Create a course</button>
+        <button className="create-btn" onClick={handleClick}>
+          Create a course +
+        </button>
         <ShowCourses courses={courses} />
       </section>
     </>
