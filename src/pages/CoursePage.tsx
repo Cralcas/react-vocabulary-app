@@ -30,6 +30,7 @@ export const CoursePage = () => {
         <>
           {course && <CourseTable course={course} />}
           <button onClick={() => setStartPractice(true)}>Start Practice</button>
+          <button onClick={handleDelete}>Delete Course</button>
         </>
       ) : (
         <>
@@ -41,7 +42,6 @@ export const CoursePage = () => {
           )}
         </>
       )}
-      <button onClick={handleDelete}>Delete Course</button>
     </>
   );
 };

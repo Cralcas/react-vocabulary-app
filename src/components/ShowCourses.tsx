@@ -8,7 +8,7 @@ interface ICardProps {
 
 export const ShowCourses = ({ courses }: ICardProps) => {
   return (
-    <section>
+    <section className="course__container">
       {courses.length > 0 ? (
         courses.map((course) => <ShowCard course={course} key={course.id} />)
       ) : (

@@ -1,0 +1,14 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  main {
+    background: #8f8f8f;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
