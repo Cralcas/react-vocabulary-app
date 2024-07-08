@@ -1,13 +1,13 @@
 import { useCourse } from "../hooks/useCourse";
-import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { CourseTable } from "../components/CourseTable";
 import { VocabularyTest } from "../components/VocabularyTest";
 
 export const CoursePage = () => {
-  const { courseId } = useParams();
   const { courses, deleteCourse } = useCourse();
   const [startPractice, setStartPractice] = useState<boolean>(false);
+  const { courseId } = useParams();
 
   const navigate = useNavigate();
 
