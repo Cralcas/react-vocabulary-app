@@ -1,13 +1,16 @@
 @import "../../index.scss";
 
-.course__container {
-  width: 100%;
+.courses__container {
   background-color: aquamarine;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  gap: 16px;
 
-  @include laptop {
+  @include tablet {
     flex-direction: row;
   }
 }

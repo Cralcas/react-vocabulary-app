@@ -13,8 +13,9 @@
     gap: 6rem;
   }
 
-  .create-btn {
+  .home__btn--create-course {
     @include button-base;
+    margin-top: 10px;
     background: #0a3586;
     padding: 5px 10px;
   }

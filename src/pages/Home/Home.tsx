@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <>
       <section className="home__wrapper container">
-        <button className="create-btn" onClick={handleClick}>
+        <button className="home__btn--create-course" onClick={handleClick}>
           Create a course +
         </button>
         <ShowCourses courses={courses} />
