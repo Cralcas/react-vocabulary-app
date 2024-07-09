@@ -1,17 +1,26 @@
 @import "../../index.scss";
 
 .card {
-  width: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 5px;
   background: #fff;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding-bottom: 20px;
+  gap: 20px;
 
   .card__language {
     font-size: $font-large;
+    color: #fff;
+    width: 100%;
+    padding-top: 20px;
+    background: #325aa6;
+    display: block;
+    text-align: center;
 
     @include laptop {
       font-size: $font-xlarge;
@@ -27,9 +36,5 @@
     background: $btn-color-secondary;
     padding: 5px 10px;
     margin-top: 10px;
-  }
-
-  @include laptop {
-    padding: 25px 40px;
   }
 }
