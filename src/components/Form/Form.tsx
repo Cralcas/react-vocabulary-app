@@ -1,7 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Course } from "../models/Course";
-import { IWord } from "../models/IWord";
+import { Course } from "../../models/Course";
+import { IWord } from "../../models/IWord";
 import { useNavigate } from "react-router-dom";
+import "./Form.scss";
 
 interface ICourseFormState {
   subject: string;
@@ -73,7 +74,7 @@ export const Form = ({ addCourse }: IFormProps) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="gesubjectnre">Subject</label>
+        <label htmlFor="subject">Subject</label>
         <input
           id="subject"
           type="text"
@@ -93,9 +94,8 @@ export const Form = ({ addCourse }: IFormProps) => {
           required
         />
 
-        <label htmlFor="words">Words</label>
         {courseForm.words.map((word, index) => (
-          <div id="words" key={index}>
+          <div className="form__words-container" key={index}>
             <label htmlFor={`word-${index}`}>Word:</label>
             <input
               id={`word-${index}`}
@@ -116,15 +116,26 @@ export const Form = ({ addCourse }: IFormProps) => {
               required
             />
 
-            <button type="button" onClick={() => handleRemoveWord(index)}>
+            <button
+              className=""
+              type="button"
+              onClick={() => handleRemoveWord(index)}
+            >
               Remove
             </button>
           </div>
         ))}
-        <button type="button" onClick={handleAddWord}>
+
+        <button
+          className="form__btn--new"
+          type="button"
+          onClick={handleAddWord}
+        >
           New Word
         </button>
-        <button type="submit">Create</button>
+        <button className="form__btn--submit" type="submit">
+          Create
+        </button>
       </form>
     </>
   );

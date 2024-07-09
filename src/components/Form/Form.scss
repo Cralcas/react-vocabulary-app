@@ -1,0 +1,26 @@
+@import "../../index.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: hwb(0 81% 14% / 0.74);
+  padding: 50px 20px;
+  border-radius: 5px;
+
+  gap: 15px;
+
+  .form__words-container {
+    display: flex;
+    gap: 5px;
+  }
+  .form__btn--new {
+    @include button-base;
+    align-self: flex-end;
+    color: #000;
+  }
+  .form__btn--submit {
+    @include button-base;
+    align-self: flex-start;
+    color: #000;
+  }
+}
