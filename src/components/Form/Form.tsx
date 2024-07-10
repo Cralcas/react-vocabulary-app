@@ -72,20 +72,14 @@ export const Form = ({ addCourse }: IFormProps) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="subject">Subject</label>
+    <form className="form" onSubmit={handleSubmit}>
+      <h2>Create a course</h2>
+      <div className="form__group">
+        <label className="form__label" htmlFor="language">
+          Language
+        </label>
         <input
-          id="subject"
-          type="text"
-          name="subject"
-          value={courseForm.subject}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="language">Language</label>
-        <input
+          className="form__input"
           id="language"
           type="text"
           name="language"
@@ -93,50 +87,80 @@ export const Form = ({ addCourse }: IFormProps) => {
           onChange={handleChange}
           required
         />
+      </div>
 
+      <div className="form__group">
+        <label className="form__label" htmlFor="subject">
+          Subject
+        </label>
+        <input
+          className="form__input"
+          id="subject"
+          type="text"
+          name="subject"
+          value={courseForm.subject}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <hr />
+      <div className="form__words-container">
         {courseForm.words.map((word, index) => (
-          <div className="form__words-container" key={index}>
-            <label htmlFor={`word-${index}`}>Word:</label>
-            <input
-              id={`word-${index}`}
-              type="text"
-              name="word"
-              value={word.word}
-              onChange={(e) => handleWordsChange(e, index)}
-              required
-            />
+          <div className="form__words-box" key={index}>
+            {index > 0 && (
+              <div className="form__remove-btn-container">
+                <button
+                  className="form__btn--remove"
+                  type="button"
+                  onClick={() => handleRemoveWord(index)}
+                >
+                  x
+                </button>
+              </div>
+            )}
+            <div className="form__input-box">
+              <label className="form__label" htmlFor={`word-${index}`}>
+                Word
+              </label>
 
-            <label htmlFor={`translation-${index}`}>Translation:</label>
-            <input
-              id={`translation-${index}`}
-              type="text"
-              name="translation"
-              value={word.translation}
-              onChange={(e) => handleWordsChange(e, index)}
-              required
-            />
-
-            <button
-              className=""
-              type="button"
-              onClick={() => handleRemoveWord(index)}
-            >
-              Remove
-            </button>
+              <input
+                className="form__input"
+                id={`word-${index}`}
+                type="text"
+                name="word"
+                value={word.word}
+                onChange={(e) => handleWordsChange(e, index)}
+                required
+              />
+            </div>
+            <div className="form__input-box">
+              <label className="form__label" htmlFor={`translation-${index}`}>
+                Translation
+              </label>
+              <input
+                className="form__input"
+                id={`translation-${index}`}
+                type="text"
+                name="translation"
+                value={word.translation}
+                onChange={(e) => handleWordsChange(e, index)}
+                required
+              />
+            </div>
           </div>
         ))}
+      </div>
 
-        <button
-          className="form__btn--new"
-          type="button"
-          onClick={handleAddWord}
-        >
-          New Word
-        </button>
-        <button className="form__btn--submit" type="submit">
-          Create
-        </button>
-      </form>
-    </>
+      <button
+        className="form__btn form__btn--new"
+        type="button"
+        onClick={handleAddWord}
+      >
+        New Word
+      </button>
+      <button className="form__btn form__btn--submit" type="submit">
+        Create
+      </button>
+    </form>
   );
 };

@@ -13,7 +13,7 @@
   gap: 20px;
   overflow: hidden;
 
-  .card__language {
+  &__language {
     font-size: $font-large;
     color: #fff;
     width: 100%;
@@ -27,11 +27,11 @@
     }
   }
 
-  .card__subject {
+  &__subject {
     font-size: $font-medium;
   }
 
-  .card__btn--practice {
+  &__btn--practice {
     @include button-base;
     background: $btn-color-secondary;
     padding: 5px 10px;

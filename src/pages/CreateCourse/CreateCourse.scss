@@ -1,15 +1,17 @@
 @import "../../index.scss";
 
-.form__container {
-  height: 60%;
+.create-course__container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  h2 {
-    font-size: $font-large;
-    text-align: center;
+  gap: 5px;
+
+  @include tablet {
+    gap: 100px;
+  }
+  @include laptop {
+    gap: 100px;
   }
 
   .back-btn {

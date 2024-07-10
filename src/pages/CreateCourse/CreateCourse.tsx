@@ -12,11 +12,10 @@ export const CreateCourse = () => {
     navigate("/");
   };
   return (
-    <section className="form__container container">
+    <section className="create-course__container  container">
       <button className="back-btn" onClick={handleClick}>
         🡸 Back
       </button>
-      <h2>Create a course</h2>
 
       <Form addCourse={addCourse} />
     </section>
