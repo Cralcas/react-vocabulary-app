@@ -1,8 +1,9 @@
-import { useCourse } from "../hooks/useCourse";
+import { useCourse } from "../../hooks/useCourse";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { CourseTable } from "../components/CourseTable";
-import { VocabularyTest } from "../components/VocabularyTest";
+import { CourseTable } from "../../components/CourseTable/CourseTable";
+import { VocabularyTest } from "../../components/VocabularyTest";
+import "./CoursePage.scss";
 
 export const CoursePage = () => {
   const { courses, deleteCourse } = useCourse();
@@ -24,14 +25,35 @@ export const CoursePage = () => {
     }
   };
 
+  const handleClick = () => {
+    if (startPractice) {
+      setStartPractice(false);
+    } else {
+      navigate("/");
+    }
+  };
   return (
-    <>
+    <section className="course__container container">
+      <div className="btn__container">
+        <button className="back-btn" onClick={handleClick}>
+          🡸 Back
+        </button>
+
+        <button className="delete-btn" onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
       {!startPractice ? (
-        <>
+        <section className="course__overview">
           {course && <CourseTable course={course} />}
-          <button onClick={() => setStartPractice(true)}>Start Practice</button>
-          <button onClick={handleDelete}>Delete Course</button>
-        </>
+
+          <button
+            className="practice-btn"
+            onClick={() => setStartPractice(true)}
+          >
+            Start Practice
+          </button>
+        </section>
       ) : (
         <>
           {course && (
@@ -42,6 +64,6 @@ export const CoursePage = () => {
           )}
         </>
       )}
-    </>
+    </section>
   );
 };

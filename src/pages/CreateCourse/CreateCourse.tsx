@@ -12,7 +12,7 @@ export const CreateCourse = () => {
     navigate("/");
   };
   return (
-    <section className="create-course__container  container">
+    <section className="create-course__container container">
       <button className="back-btn" onClick={handleClick}>
         🡸 Back
       </button>

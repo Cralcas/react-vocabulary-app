@@ -1,4 +1,5 @@
-import { Course } from "../models/Course";
+import { Course } from "../../models/Course";
+import "./CourseTable.scss";
 
 interface ICourseTableProps {
   course: Course;
@@ -6,9 +7,10 @@ interface ICourseTableProps {
 
 export const CourseTable = ({ course }: ICourseTableProps) => {
   return (
-    <section>
-      <h2>{course.language}</h2>
-      <h3>{course.subject}</h3>
+    <section className="course__table-box">
+      <h3>
+        {course.language}: {course.subject}
+      </h3>
       <table>
         <thead>
           <tr>

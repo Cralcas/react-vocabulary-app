@@ -1,0 +1,41 @@
+@import "../../index.scss";
+
+.course__table-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h2 {
+    @include tablet {
+      font-size: $font-xlarge;
+    }
+
+    @include laptop {
+      margin-bottom: 50px;
+    }
+  }
+
+  h3 {
+    margin-top: 20px;
+
+    @include laptop {
+      font-size: $font-large;
+    }
+  }
+  table {
+    background: rgba(255, 255, 255, 0);
+
+    @include laptop {
+      font-size: $font-medium;
+    }
+
+    th {
+      padding: 10px;
+      background: #0a3586;
+      color: #fff;
+    }
+    td {
+      background: #fff;
+      padding: 5px;
+    }
+  }
+}

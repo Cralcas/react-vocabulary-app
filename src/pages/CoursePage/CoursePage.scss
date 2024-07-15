@@ -1,0 +1,46 @@
+@import "../../index.scss";
+
+.course__container {
+  height: 100vh;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+
+  @include tablet {
+    width: 500px;
+    gap: 100px;
+  }
+
+  .btn__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .back-btn {
+      @include button-base;
+      color: #000;
+      background: none;
+    }
+
+    .delete-btn {
+      @include button-base;
+      padding: 5px 10px;
+      background: #e74c3c;
+    }
+  }
+
+  .course__overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    .practice-btn {
+      @include button-base;
+      background: $btn-color-secondary;
+      padding: 5px 10px;
+    }
+  }
+}
