@@ -37,10 +37,18 @@
     align-items: center;
     gap: 35px;
 
+    @include laptop {
+      gap: 100px;
+    }
+
     .practice-btn {
       @include button-base;
       background: $btn-color-secondary;
       padding: 5px 10px;
+
+      @include laptop {
+        font-size: $font-medium;
+      }
     }
   }
 }

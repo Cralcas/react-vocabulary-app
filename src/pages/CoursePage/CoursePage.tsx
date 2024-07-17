@@ -2,7 +2,7 @@ import { useCourse } from "../../hooks/useCourse";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { CourseTable } from "../../components/CourseTable/CourseTable";
-import { VocabularyTest } from "../../components/VocabularyTest";
+import { VocabularyTest } from "../../components/VocabularyTest/VocabularyTest";
 import "./CoursePage.scss";
 
 export const CoursePage = () => {
@@ -39,9 +39,11 @@ export const CoursePage = () => {
           🡸 Back
         </button>
 
-        <button className="delete-btn" onClick={handleDelete}>
-          Delete
-        </button>
+        {!startPractice && (
+          <button className="delete-btn" onClick={handleDelete}>
+            Delete
+          </button>
+        )}
       </div>
       {!startPractice ? (
         <section className="course__overview">

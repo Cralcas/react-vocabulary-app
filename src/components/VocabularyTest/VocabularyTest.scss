@@ -1,0 +1,53 @@
+@import "../../index.scss";
+.test__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+  }
+
+  .form__group {
+    display: flex;
+    display: inline;
+    justify-content: center;
+  }
+
+  .course__table-box {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      margin-top: 20px;
+      font-size: $font-large;
+
+      @include laptop {
+        font-size: $font-xlarge;
+      }
+    }
+    table {
+      background: rgba(255, 255, 255, 0);
+
+      @include laptop {
+        font-size: $font-large;
+      }
+
+      th {
+        padding: 10px;
+        background: #325aa6;
+        color: #fff;
+      }
+      td {
+        background: #fff;
+        padding: 5px;
+      }
+    }
+  }
+}

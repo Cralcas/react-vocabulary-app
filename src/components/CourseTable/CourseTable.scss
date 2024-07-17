@@ -2,35 +2,28 @@
 
 .course__table-box {
   display: flex;
+  text-align: center;
   flex-direction: column;
   gap: 20px;
-  h2 {
-    @include tablet {
-      font-size: $font-xlarge;
-    }
-
-    @include laptop {
-      margin-bottom: 50px;
-    }
-  }
 
   h3 {
     margin-top: 20px;
+    font-size: $font-large;
 
     @include laptop {
-      font-size: $font-large;
+      font-size: $font-xlarge;
     }
   }
   table {
     background: rgba(255, 255, 255, 0);
 
     @include laptop {
-      font-size: $font-medium;
+      font-size: $font-large;
     }
 
     th {
       padding: 10px;
-      background: #0a3586;
+      background: #325aa6;
       color: #fff;
     }
     td {
