@@ -4,41 +4,69 @@
 .test__container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   text-align: center;
+  gap: 10px;
 
-  form {
+  .test-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 50px;
 
-    gap: 15px;
+    button {
+      @include button-base;
+      padding: 2px 5px;
 
-    @include button-base;
-  }
+      @include tablet {
+        font-size: $font-medium;
+      }
+    }
 
-  .form__group {
-    display: flex;
-    display: inline;
-    justify-content: center;
+    &__input {
+      padding: 2px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .test-btn--submit {
+      background: $btn-color-primary;
+    }
+
+    .test-form__group {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .test-form-btn__container {
+      width: 100%;
+      gap: 50px;
+      display: flex;
+
+      .test-btn--reset {
+        background: $btn-color-secondary;
+      }
+      .test-btn--show {
+        margin-left: auto;
+        background: #e74c3c;
+      }
+    }
   }
 
   .course__table-box {
     display: flex;
     text-align: center;
     flex-direction: column;
-    gap: 20px;
-
-    h3 {
-      margin-top: 20px;
-      font-size: $font-large;
-
-      @include laptop {
-        font-size: $font-xlarge;
-      }
-    }
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     table {
       background: rgba(255, 255, 255, 0);
+
+      @include tablet {
+        font-size: $font-medium;
+      }
 
       @include laptop {
         font-size: $font-large;

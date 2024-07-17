@@ -1,6 +1,21 @@
+@import "variables";
+@import "mixins";
+
 .container {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 0.25rem;
+}
+
+@media (min-width: $tablet) {
+  .container {
+    max-width: $tablet;
+  }
+}
+
+@media (min-width: $laptop) {
+  .container {
+    max-width: $laptop;
+  }
 }

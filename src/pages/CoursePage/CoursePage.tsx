@@ -57,14 +57,7 @@ export const CoursePage = () => {
           </button>
         </section>
       ) : (
-        <>
-          {course && (
-            <VocabularyTest
-              course={course}
-              onEndPractice={() => setStartPractice(false)}
-            />
-          )}
-        </>
+        <>{course && <VocabularyTest course={course} />}</>
       )}
     </section>
   );

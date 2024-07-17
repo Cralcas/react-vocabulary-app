@@ -30,6 +30,10 @@
 
   &__subject {
     font-size: $font-medium;
+
+    @include laptop {
+      font-size: $font-large;
+    }
   }
 
   &__btn--practice {

@@ -4,17 +4,13 @@ import "./VocabularyTest.scss";
 
 interface IVocabularyTestProps {
   course: Course;
-  onEndPractice: () => void;
 }
 
 interface IShowAnswers {
   [key: string]: boolean;
 }
 
-export const VocabularyTest = ({
-  course,
-  onEndPractice,
-}: IVocabularyTestProps) => {
+export const VocabularyTest = ({ course }: IVocabularyTestProps) => {
   const [answer, setAnswer] = useState<string>("");
   const [showAnswers, setShowAnswers] = useState<IShowAnswers>({});
   const [gameMessage, setGameMessage] = useState<string>("");
@@ -48,7 +44,9 @@ export const VocabularyTest = ({
 
     if (Object.keys(newShowAnswers).length === course.words.length) {
       setGameOn(false);
-      setGameMessage(`You got ${correctWordsCount + 1}/${course.words.length}`);
+      setGameMessage(
+        `You got ${correctWordsCount + 1}/${course.words.length} words correct!`
+      );
     }
   };
 
@@ -74,7 +72,6 @@ export const VocabularyTest = ({
     });
     setShowAnswers(showAllAnswers);
     setGameOn(false);
-    setGameMessage("Answers revealed!");
   };
 
   const handleReset = () => {
@@ -87,9 +84,10 @@ export const VocabularyTest = ({
 
   return (
     <section className="test__container">
-      <form onSubmit={handleSubmit}>
-        <div className="form__group">
+      <form className="test-form" onSubmit={handleSubmit}>
+        <div className="test-form__group">
           <input
+            className="test-form__input"
             type="text"
             value={answer}
             onChange={handleChange}
@@ -97,19 +95,27 @@ export const VocabularyTest = ({
             disabled={!gameOn}
             aria-label="Enter word"
           />
-          <button type="submit" disabled={!gameOn}>
+          <button className="test-btn--submit" type="submit" disabled={!gameOn}>
             Submit
           </button>
         </div>
-        <div className="form-btn__container">
-          <button type="button" onClick={handleShowAnswers} disabled={!gameOn}>
+        <div className="test-form-btn__container">
+          {!gameOn && (
+            <button
+              className="test-btn--reset"
+              type="button"
+              onClick={handleReset}
+            >
+              Reset
+            </button>
+          )}
+          <button
+            className="test-btn--show"
+            type="button"
+            onClick={handleShowAnswers}
+            disabled={!gameOn}
+          >
             Show Answers
-          </button>
-          <button type="button" onClick={onEndPractice}>
-            End Practice
-          </button>
-          <button type="button" onClick={handleReset}>
-            Reset
           </button>
         </div>
       </form>
