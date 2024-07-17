@@ -1,0 +1,35 @@
+@import "variables";
+
+@mixin button-base {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media (min-width: $tablet) {
+  .container {
+    max-width: $tablet;
+  }
+}
+
+@media (min-width: $laptop) {
+  .container {
+    max-width: $laptop;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: $laptop) {
+    @content;
+  }
+}
