@@ -2,6 +2,7 @@
 @import "../../styles/base/variables";
 
 .course__table-box {
+  width: 100%;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -16,12 +17,12 @@
     }
   }
   table {
-    background: rgba(255, 255, 255, 0);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
     @include tablet {
       font-size: $font-medium;
     }
+
     @include laptop {
       font-size: $font-large;
     }

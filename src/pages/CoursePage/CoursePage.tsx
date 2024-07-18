@@ -33,8 +33,8 @@ export const CoursePage = () => {
     }
   };
   return (
-    <section className="course__container container">
-      <div className="btn__container">
+    <section className="course container">
+      <div className="course__btn-container">
         <button className="back-btn" onClick={handleClick}>
           🡸 Back
         </button>
@@ -45,6 +45,7 @@ export const CoursePage = () => {
           </button>
         )}
       </div>
+
       {!startPractice ? (
         <section className="course__overview">
           {course && <CourseTable course={course} />}

@@ -1,13 +1,13 @@
 @import "../../styles/base/mixins";
 @import "../../styles/base/variables";
 
-.test__container {
+.test {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 10px;
 
-  .test-form {
+  &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,18 +22,7 @@
       }
     }
 
-    &__input {
-      padding: 2px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    .test-btn--submit {
-      background: $btn-color-primary;
-    }
-
-    .test-form__group {
+    &-group {
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -41,26 +30,45 @@
       gap: 10px;
     }
 
-    .test-form-btn__container {
-      width: 100%;
-      gap: 50px;
-      display: flex;
-
-      .test-btn--reset {
-        background: $btn-color-secondary;
-      }
-      .test-btn--show {
-        margin-left: auto;
-        background: #e74c3c;
-      }
+    &-input {
+      padding: 2px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
     }
   }
 
-  .course__table-box {
+  &__btn {
+    &--submit {
+      background: $btn-color-primary;
+    }
+
+    &--reset {
+      background: $btn-color-secondary;
+    }
+
+    &--show {
+      margin-left: auto;
+      background: #e74c3c;
+    }
+  }
+
+  &__btn-container {
+    width: 100%;
+    gap: 50px;
+    display: flex;
+  }
+
+  &__feedback {
+    margin-top: 20px;
+  }
+
+  &__table-box {
     display: flex;
     text-align: center;
     flex-direction: column;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
     table {
       background: rgba(255, 255, 255, 0);
 
@@ -77,6 +85,7 @@
         background: #325aa6;
         color: #fff;
       }
+
       td {
         background: #fff;
         padding: 5px;

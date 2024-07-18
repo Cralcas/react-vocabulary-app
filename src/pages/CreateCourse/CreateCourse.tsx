@@ -12,8 +12,8 @@ export const CreateCourse = () => {
     navigate("/");
   };
   return (
-    <section className="create-course__container container">
-      <button className="back-btn" onClick={handleClick}>
+    <section className="create-course container">
+      <button className="create-course__back-btn" onClick={handleClick}>
         🡸 Back
       </button>
 

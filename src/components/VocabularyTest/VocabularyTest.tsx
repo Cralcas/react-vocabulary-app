@@ -83,11 +83,11 @@ export const VocabularyTest = ({ course }: IVocabularyTestProps) => {
   };
 
   return (
-    <section className="test__container">
-      <form className="test-form" onSubmit={handleSubmit}>
-        <div className="test-form__group">
+    <section className="test">
+      <form className="test__form" onSubmit={handleSubmit}>
+        <div className="test__form-group">
           <input
-            className="test-form__input"
+            className="test__form-input"
             type="text"
             value={answer}
             onChange={handleChange}
@@ -95,14 +95,18 @@ export const VocabularyTest = ({ course }: IVocabularyTestProps) => {
             disabled={!gameOn}
             aria-label="Enter word"
           />
-          <button className="test-btn--submit" type="submit" disabled={!gameOn}>
+          <button
+            className="test__btn test__btn--submit"
+            type="submit"
+            disabled={!gameOn}
+          >
             Submit
           </button>
         </div>
-        <div className="test-form-btn__container">
+        <div className="test__btn-container">
           {!gameOn && (
             <button
-              className="test-btn--reset"
+              className="test__btn test__btn--reset"
               type="button"
               onClick={handleReset}
             >
@@ -110,7 +114,7 @@ export const VocabularyTest = ({ course }: IVocabularyTestProps) => {
             </button>
           )}
           <button
-            className="test-btn--show"
+            className="test__btn test__btn--show"
             type="button"
             onClick={handleShowAnswers}
             disabled={!gameOn}
@@ -120,9 +124,9 @@ export const VocabularyTest = ({ course }: IVocabularyTestProps) => {
         </div>
       </form>
 
-      {gameMessage && <p className="feedback">{gameMessage}</p>}
+      {gameMessage && <p className="test__feedback">{gameMessage}</p>}
 
-      <section className="course__table-box">
+      <section className="test__table-box">
         <table>
           <thead>
             <tr>
