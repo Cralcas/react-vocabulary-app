@@ -39,6 +39,10 @@
       padding: 0 10px;
       background: #e74c3c;
       font-size: $font-medium;
+
+      &:hover {
+        background: #c24032;
+      }
     }
   }
 
@@ -59,6 +63,10 @@
 
       @include laptop {
         font-size: $font-medium;
+      }
+
+      &:hover {
+        background: #ab3bbe;
       }
     }
   }

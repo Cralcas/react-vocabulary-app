@@ -41,5 +41,9 @@
     background: $btn-color-secondary;
     padding: 5px 10px;
     margin-top: 10px;
+
+    &:hover {
+      background: #ab3bbe;
+    }
   }
 }
