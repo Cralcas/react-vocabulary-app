@@ -13,7 +13,7 @@ export const ShowCourses = ({ courses }: ICardProps) => {
       {courses.length > 0 ? (
         courses.map((course) => <ShowCard course={course} key={course.id} />)
       ) : (
-        <ErrorMessage message="No courses available. Please create one!" />
+        <ErrorMessage message="No courses available, try creating a new one." />
       )}
     </section>
   );
