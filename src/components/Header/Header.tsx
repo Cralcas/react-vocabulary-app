@@ -6,7 +6,7 @@ export const Header = () => {
     <header>
       <nav>
         <NavLink to={"/"}>
-          <img src="/images/book-study.svg" />
+          <img src="/images/book-study.svg" alt="App logo" />
         </NavLink>
       </nav>
     </header>
